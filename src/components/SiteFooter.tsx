@@ -26,18 +26,13 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-base font-bold">{PRODUCT_NAME}</p>
           <p className="mt-3 text-sm text-muted-foreground">
-            Produtor responsável:{" "}
-            {PRODUCER_NAME || <span className="text-muted-foreground/70">a configurar</span>}
+            Produtor responsável: {PRODUCER_NAME}
           </p>
           <p className="mt-1 text-sm text-muted-foreground">
             Suporte:{" "}
-            {SUPPORT_EMAIL ? (
-              <a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-accent">
-                {SUPPORT_EMAIL}
-              </a>
-            ) : (
-              <span className="text-muted-foreground/70">e-mail a configurar</span>
-            )}
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="hover:text-accent">
+              {SUPPORT_EMAIL}
+            </a>
           </p>
         </div>
 
