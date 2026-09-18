@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import {
   PRIVACY_URL,
   PRODUCER_NAME,
@@ -9,14 +10,11 @@ import {
 } from "@/config/site";
 
 function Item({ label, url }: { label: string; url: string }) {
-  if (!url) {
-    return <li className="text-muted-foreground/70">{label} (a configurar)</li>;
-  }
   return (
     <li>
-      <a href={url} className="text-muted-foreground transition-colors hover:text-accent">
+      <Link to={url} className="text-muted-foreground transition-colors hover:text-accent">
         {label}
-      </a>
+      </Link>
     </li>
   );
 }
@@ -64,6 +62,9 @@ export function SiteFooter() {
           </p>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground/80">{REFUND_POLICY}</p>
         </div>
+      </div>
+      <div className="border-t border-border px-5 py-5 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} {PRODUCER_NAME}. Todos os direitos reservados.
       </div>
     </footer>
   );

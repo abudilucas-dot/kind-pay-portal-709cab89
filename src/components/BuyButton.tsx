@@ -3,6 +3,9 @@ import {
   isCheckoutConfigured,
   trackCheckoutClick,
 } from "@/config/site";
+import { ArrowUpRight } from "lucide-react";
+
+import { Button } from "./ui/button";
 
 type Props = {
   children: React.ReactNode;
@@ -14,13 +17,13 @@ export function BuyButton({ children, location, className = "" }: Props) {
   if (!isCheckoutConfigured) {
     return (
       <span className="inline-flex flex-col gap-1">
-        <button
+        <Button
           type="button"
           disabled
-          className={`btn-buy opacity-60 ${className}`}
+          className={`btn-buy h-auto opacity-60 ${className}`}
         >
           {children}
-        </button>
+        </Button>
         <span className="text-xs text-muted-foreground">
           Configure CHECKOUT_URL em src/config/site.ts
         </span>
@@ -37,6 +40,7 @@ export function BuyButton({ children, location, className = "" }: Props) {
       className={`btn-buy ${className}`}
     >
       {children}
+      <ArrowUpRight aria-hidden="true" className="size-4" />
     </a>
   );
 }

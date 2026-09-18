@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import capa from "@/assets/capa-ebook.png.asset.json";
+import capa from "@/assets/capa-ebook.png";
 import { Accordion, type AccordionItem } from "@/components/Accordion";
 import { BuyButton } from "@/components/BuyButton";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -20,8 +20,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
@@ -142,7 +144,7 @@ function Index() {
 
             <div className="order-1 md:order-2">
               <img
-                src={capa.url}
+                src={capa}
                 alt="Capa do e-book Domine Suas Dívidas"
                 width={1254}
                 height={1254}
@@ -176,7 +178,7 @@ function Index() {
         <section id="o-ebook" className="px-5 py-16">
           <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
             <img
-              src={capa.url}
+              src={capa}
               alt="Capa do e-book Domine Suas Dívidas"
               width={1254}
               height={1254}
@@ -292,7 +294,7 @@ function Index() {
           <div className="mx-auto max-w-5xl surface-card overflow-hidden">
             <div className="grid gap-8 p-7 sm:p-10 md:grid-cols-2 md:items-center">
               <img
-                src={capa.url}
+                src={capa}
                 alt="Capa do e-book Domine Suas Dívidas"
                 width={1254}
                 height={1254}

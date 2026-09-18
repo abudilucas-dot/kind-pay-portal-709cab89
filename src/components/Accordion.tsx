@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 export type AccordionItem = {
   id: string;
@@ -17,12 +18,13 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
         return (
           <div key={item.id} className="surface-card overflow-hidden">
             <h3>
-              <button
+              <Button
                 type="button"
+                variant="ghost"
                 aria-expanded={isOpen}
                 aria-controls={`panel-${item.id}`}
                 onClick={() => setOpen(isOpen ? null : item.id)}
-                className="flex w-full items-center gap-4 px-5 py-4 text-left"
+                className="h-auto w-full justify-start gap-4 rounded-none px-5 py-4 text-left hover:bg-primary/10"
               >
                 <span className="shrink-0 rounded-full bg-primary/20 px-3 py-1 font-display text-xs font-bold tracking-wide text-accent">
                   {item.label}
@@ -38,7 +40,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
                 >
                   +
                 </span>
-              </button>
+              </Button>
             </h3>
             <div
               id={`panel-${item.id}`}

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { PRODUCT_SHORT_NAME } from "@/config/site";
 import { BuyButton } from "./BuyButton";
+import { Button } from "./ui/button";
 
 const LINKS = [
   { href: "#o-ebook", label: "O e-book" },
@@ -38,18 +40,25 @@ export function SiteHeader() {
           </BuyButton>
         </div>
 
-        <button
+        <Button
           type="button"
-          className="rounded-md border border-border px-3 py-2 text-xs lg:hidden"
+          variant="outline"
+          size="icon"
+          className="lg:hidden"
           aria-expanded={open}
           aria-controls="menu-mobile"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? "Fechar" : "Menu"}
-        </button>
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </Button>
       </div>
 
-      <div id="menu-mobile" hidden={!open} className="border-t border-border lg:hidden">
+      <div
+        id="menu-mobile"
+        hidden={!open}
+        className="animate-in fade-in slide-in-from-top-2 border-t border-border duration-200 lg:hidden"
+      >
         <nav aria-label="Navegação mobile" className="mx-auto flex max-w-6xl flex-col px-5 py-3">
           {LINKS.map((l) => (
             <a

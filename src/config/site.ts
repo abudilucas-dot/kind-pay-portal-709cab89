@@ -11,9 +11,9 @@ export const PRODUCER_NAME = "Lucas Alexandria Abudi";
 export const REFUND_POLICY =
   "Garantia de 7 dias: se o conteúdo não atender às suas expectativas, solicite o reembolso pelo e-mail de suporte dentro do prazo. O valor integral será devolvido conforme as regras da Kiwify.";
 
-export const PRIVACY_URL = "";
-export const TERMS_URL = "";
-export const REFUND_URL = "";
+export const PRIVACY_URL = "/privacidade";
+export const TERMS_URL = "/termos";
+export const REFUND_URL = "/reembolso";
 
 export const formatPrice = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
